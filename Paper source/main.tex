@@ -19,7 +19,7 @@
 }
 
 \author{\IEEEauthorblockN{ Luca Brodo}
-\IEEEauthorblockA{\textit{Hochschule Hamm-Lippstadt)} \\
+\IEEEauthorblockA{\textit{Hochschule Hamm-Lippstadt} \\
 \textit{Deep Learning}\\
 Lippstadt, Germany \\
 luca.brodo@stud.hshl.de}
@@ -41,7 +41,7 @@ Deep Learning, Deep Reinforcement Learning, Robot Swarms, Q-Function
 In recent years there has been an unprecedented evolution in communication technologies, introducing engineers to new horizons, which a couple of decades ago were not even imaginable. These advancements brought us a new field, namely the Internet of Things, and now every device has the possibilities to communicate with one another, hence augmenting exponentially their possibilities, since they are not limited by their on-board resources anymore. In other words, now even the smallest, less powerful device can now fulfill requirements which would have normally required a lot of memory and computational power. \\
 Being able to communicate with others in a fast and reliable way, in addition to what it has already been said, allows to create situations where devices can cooperate with others to reach a common goal.\\ Cooperation has been proven in nature to exceed the capabilities of one individual and there is a plethora of examples that prove it \cite{guided}. The most shining example of teamwork in the animal kingdom are bees. A hive of honey bees consists of almost 60,000 different bees, each one having a very specific job and they contribute to the overall success of the hive the same amount\cite{MAAREC}. \\
 Cooperation, however, does not exclusively bring benefits to complex tasks, it even allows individuals to solve rather simple tasks more efficiently as well. As a matter of fact, ants benefit from cooperation by transporting in groups a weight, which would otherwise be impossible to lift by a single ant. \\
-What complex and non-complex situations have in common is that each individual has at its own disposal only its basic and limited sensing of the environment and could benefit from the help of the others. \cite{guided} \\
+What complex and non-complex situations have in common is that each individual has at its own disposal only its basic and limited sensing of the environment and could benefit from the help of the others \cite{guided}. \\
 From these biological processes the field of robotic has been trying to take inspiration in order to solve very complex tasks in the real world with the use of rather simple agents. In most cases, those agents have very basic movement and communication capabilities and are only able to sense parts of the environment, yet, by cooperating, they are able to solve delicate real-time tasks in a fast and reliably way. What this translates to is systems which can solve very complex tasks with a relatively low cost of production, since they do not require expensive resources or cutting-edge technologies to operate. As M.H{\"u}ttenrauch et al. pointed out in \cite{guided}, usually to implement such cooperative systems a common approach is to extract rules from the environment. Such approach, however, if done manually, is not only tedious, but can also become in some case so complex that some tasks become unsolvable. The use of Deep Learning can obviate to this problem and at the same time augment the possibilities of the system, making it more flexible to changes and therefore scalable as well. \\Deep Learning can bring a lot of benefits, however there are nuances which should be known and techniques like Neural Network can be fiddly at times. In this paper, we will explore the use of Deep Learning techniques in swarm systems and how they can be used to create fast, efficient, reliable systems to tackle very complex problems. In order to achieve this, in the first section, we will introduce what swarm systems are and where they are applied. Subsequently, in the second and third section, we will introduce deep learning and we will define the difference between Deep Learning and Deep Reinforcement Learning. In the last section we will discuss the application Deep Learning in swarm systems with some proposed solutions. Finally, we will discuss an implementation of said techniques in a simulation of a swarm system. 
 \section{Swarm robotics}\label{sec:swarm}
 \textit{Swarm robotics}, as the name implies, is a branch of robotics which deals with the coordination of multiple, usually simple, robots in order to achieve a common goal, creating structures and behaviors inspired by the ones observed in nature\cite{cheraghi_past_2021}.
@@ -54,9 +54,9 @@ Amongst all of the properties, the more important ones are:
   \item[\textbf{Scalability}] \hfill \\ The system must be able to work independently from the number of robots in the swarm. Different tasks may require a different number of robots, hence the number of group members should not influence the overall performance of the system. The system, finally, should be effective when the swarm is small and should be able to support the cooperation amongst the members of a large swarm
   \item[\textbf{Robustness}] \hfill \\ The swarm must be capable of cope with environmental disturbances or any fault that each single robot might encounter, or even if any of the robot fails. The robots in a swarm tend to be simple, therefore more error-prone and more subjected to environmental disturbances, and the errors which might be generated should not influence the performance of the whole system. 
 \end{description}
-There are also other properties which should be taken as a to-do list when designing swarm systems. \cite{cheraghi_past_2021}\\
+There are also other properties which should be taken as a to-do list when designing swarm systems\cite{cheraghi_past_2021}.\\
 Each robot should be autonomous, hence able to act on their own, without a central entity commanding them. \\
-The robots in a swarm should be self organized, hence able to cope with the environment and reorganize themselves accordingly. This is also a very important aspect for swarm robotics, as the main goal is to accomplish tasks in coordination. \\
+The robots in a swarm should be self organized, hence able to cope with the environment and reorganize themselves accordingly. This is also a very important aspect for swarm robotics, as the main goal is to accomplish tasks in coordination\cite{cheraghi_past_2021}. \\
 Swarms are finally also decentralized, so there's no central leader, as it might be a single point of failure and hinder flexibility, scalability and robustness.\\
 If these properties are respected, swarm robotic applications offer many advantages. Not only each robot has the possibility to autonomously cope with environmental changes, but they can combine their resources to provide unlimited features and possibilities in flexible and scalable systems. This creates very powerful and fast systems  at a relatively low cost, since robots have very simple design and swarms are inherently parallel, since each task can be divided into sub-tasks assigned to each robot \cite{cheraghi_past_2021}. \\Swarm robotic systems, however, bring not only advantages, but also disadvantages, mainly in real world applications. According to Matarić in \cite{MATARIC1995321}, the main drawbacks are:
 \begin{itemize}
@@ -85,10 +85,10 @@ Autonomous cars are highly considered the future of the car industry and this is
 Although the technology is advancing at an unprecedentedly fast pace, so fast in fact that technologies become obsolete within years \cite{unknown}, many still questions the safety of this new way of conceiving road mobility (\cite{Johnson+2020+137+155}, \cite{robert_are_2019}). To increase safety for passengers in autonomous vehicles, German car manufacturers Audi and Daimler consider swarm robotics as the main solution. (\cite{AUDI_CAR}, \cite{daimler}).\\
 Both visions share a particular term: "Car-to-X" principle. The Car-to-x principle can be thought as an augmentation of both the Vehicle-to-infrastructure (V2I) and the Vehicle-to-Vehicle (V2V) principles. Basically, according to this principle, every car exploits the properties of 5G to communicate not only with other cars, but also with every other entity in the environment to receive information about traffic, parking spots, various dangerous like icy roads or bikers, etc. (Fig n. \ref{fig:future_city}). 
 The information are then dealt with using swarm intelligence techniques to achieve the most stable, flexible and robust system possible. \\
-As Audi claims "The car-to-x technologies developed by Audi open up numerous new possibilities for making driving safer, more relaxed, and more intelligent"\cite{AUDI_CAR}. \\
+As Audi claims "\textit{The car-to-x technologies developed by Audi open up numerous new possibilities for making driving safer, more relaxed, and more intelligent}"\cite{AUDI_CAR}. \\
 Where swarm robotics technologies really shine, however, is in the farming field. According to some, farming is now undergoing a revolution thanks to swarm robotics. \cite{revolution}\\
-One of the most notable example is the Swarm Robotics for Agricultural Applications (SAGA) project. \cite{Albani:2017tp} \cite{AlbaniEtAl:BICT2019}\\
-The main goal of this project is to demonstrate the advantages of multi-robot systems, guided by swarm intelligence principles, working in farms over the current state of the art within the context of monitor/mapping. \cite{Albani:2017tp}\\
+One of the most notable example is the Swarm Robotics for Agricultural Applications (SAGA) project \cite{Albani:2017tp} \cite{AlbaniEtAl:BICT2019}.\\
+The main goal of this project is to demonstrate the advantages of multi-robot systems, guided by swarm intelligence principles, working in farms over the current state of the art within the context of monitor/mapping \cite{Albani:2017tp}.\\
 Unmanned Aerial Vehicles (UAVs) are programmed to work collectively in order to build a map of the field,in which the plantation is divided in different areas with different semantic tags in such a way that the spatio-temporal planning of weeding operations is facilitate, also with the use of autonomous precision weed removal robots.
 
 \begin{figure}[htb]
@@ -118,7 +118,7 @@ As delineated by Razzak et al. in \cite{Razzak2018}, for example, deep learning 
 
 Deep Reinforcement Learning is a sub-field of machine learning with the main focus of combining reinforcement learning with deep learning. \\
 Reinforcement learning is a process in which agents try to learn from the outcome of their decisions. This type of problems are often modeled mathematically as Markov decision processes. In very simplistic words, in such models, agents take an action $a$ when in a state $s$ receiving a reward before transitioning to the next state named $s'$. The purpose of the agents is to learn a policy $\pi(a|s)$ or map from observations to actions, in order to maximize its returns (expected sum of rewards)\cite{DBLP:journals/corr/Li17b}. An overview of such process can be seen in Fig n. \ref{fig:m_dia}. \\
-An RL agent includes one or more of the following components:
+An RL agent includes following components:
 \begin{itemize}
     \item  a representation of a \textit{value function} that provides a prediction of how good each action $a$ in a particular state $s$ is,
     \item a direct representation of the policy $\pi(s|a)$
@@ -143,7 +143,7 @@ where:
     
 \end{enumerate}
 
-The Q-value $Q(s,a)$ is updated at every step given the sum of already existing q-values and the equation which determines the best action in the current state. Updating the Q-value using the aforementioned equation is referred to as Q-learning.\cite{Q_learning}\\
+The Q-value $Q(s,a)$ is updated at every step given the sum of already existing q-values and the equation which determines the best action in the current state. Updating the Q-value using the aforementioned equation is referred to as Q-learning\cite{Q_learning}.\\
 During the training process, a table usually called Q-table containing the rewards relative to the state-action pair is updated and it can be then queried to solve given problems. The Q-table can be initialized with either random values or to zero, like in Fig n. \ref{fig:q_table}
 \begin{figure}[htb]
     \centering
@@ -153,13 +153,12 @@ During the training process, a table usually called Q-table containing the rewar
     \label{fig:q_table}
 \end{figure}
 
-The Q-learning approach has become the basis of many reinforcement learning algorithms because of its simplicity and excellent learning ability in single-agent environments. \cite{Q_learning}\\
-Although simple and elegant, this approach tends to be not very effective when solving problems in large or in multi-agent environments,like the real world, because the permutation state-action is so immense that some actions might not have been experienced previously. In addition, the number of cells in the Q-table grows exponentially with the number of action states, therefore requiring a considerably large amount of memory. \cite{Q_learning}\\
-Deep Q-learning was developed by Google Deep Mind to obviate to the problem of memory in large environments. Deep Q-learning uses a Convolutional Neural Network as an approximation function when it becomes too difficult to express the value function for every state.
-\cite{Q_learning}\\
+The Q-learning approach has become the basis of many reinforcement learning algorithms because of its simplicity and excellent learning ability in single-agent environments \cite{Q_learning}.\\
+Although simple and elegant, this approach tends to be not very effective when solving problems in large or in multi-agent environments,like the real world, because the permutation state-action is so immense that some actions might not have been experienced previously. In addition, the number of cells in the Q-table grows exponentially with the number of action states, therefore requiring a considerably large amount of memory \cite{Q_learning}.\\
+Deep Q-learning was developed by Google Deep Mind to obviate to the problem of memory in large environments. Deep Q-learning uses a Convolutional Neural Network as an approximation function when it becomes too difficult to express the value function for every state \cite{Q_learning}.\\
 Since the value approximation may result unstable if there is too much correlation with the training data, Deep Q-learning uses two strategies to reduce it, namely replay memory, or experience replay, and the so-called target Q technique. 
 The experience replay approach uses a buffer, namely the replay memory, to store the experience, i.e. all the states, actions and rewards, which will then be queried randomly for a batch of data with arbitrary size, hence removing correlation all together. \cite{Q_learning}\\
-The target Q technique, on the other hand, uses a separate neural network, the so called target network, to obtain the target value and train the Q network based on that target value, which helps reducing correlation. \cite{Q_learning}\\
+The target Q technique, on the other hand, uses a separate neural network, the so called target network, to obtain the target value and train the Q network based on that target value, which helps reducing correlation\cite{Q_learning}.\\
 
 
 
@@ -167,7 +166,7 @@ The target Q technique, on the other hand, uses a separate neural network, the s
 As we pointed out in section 1, cooperation can augment the capabilities of a single individual. This concept can also be applied to robotics swarm, especially swarm based on resource-limited robots, to achieve results which otherwise could not be achieved. Usually, these systems tend to imitate biological processes. For example,  Kube et al in \cite{KUBE200085} modelled a scenario, based on the ants' behavior,  in which the robots have the goal of pushing a box. However, those scenarios become very complex to model the more they approach a real word application. To help flatten the difficulty, one solution is to use deep learning techniques. \\
 The first application we are going to analyze is the one proposed by Hüttenrauch et al in \cite{guided}. In this paper, the authors simulate a swarm of agents based on the Kilobot (Fig n. \ref{fig:kilobot}), which is a very simple 3-legged robot with limitated sensing capabilites. 
 The agents need to learn a specific policy by learning from their moves. 
-They defined two policies: one to locate a target and one to build a graph with the other agents. To train the agents to solve these properties, the authors used an approach similar to the Deep Deterministic Policy Gradient Algorithm (DDPG). Hüttenrauch et al. concluded that this result \textit{"is not feasible with a non-guided approach"}. \cite{guided}\\
+They defined two policies: one to locate a target and one to build a graph with the other agents. To train the agents to solve these properties, the authors used an approach similar to the Deep Deterministic Policy Gradient Algorithm (DDPG). Hüttenrauch et al. concluded that this result \textit{"is not feasible with a non-guided approach"} \cite{guided}.\\
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.3\textwidth]{img/Kilobot.png}
@@ -176,7 +175,7 @@ They defined two policies: one to locate a target and one to build a graph with 
 \end{figure}
 
 
-A completely different approach is the one used by Nguyen et al. in \cite{nguyen2020continuous}. Similarly to what we observed previously, they also noticed that \textit{a swarm of multi-robot systems demands higher computational requirements as the swarm size increases}(\cite{nguyen2020continuous}), therefore posing a scalability problem. To overcome such problem the authors propose a solution inspired from the concept of shepherding. As a matter of fact, taking inspiration from sheep-dogs guiding a flock, they use a system comprised of one controlling agent, namely an unmanned areal vehicle (UAV), acting as a sheepdog which controls three unmanned ground vehicles (UGVs). The UAV has a global perspective of the environment, hence is able to communicate with the other UGVs and those are within the field of view of its camera, and its job is to guide them towards a target. \\
+A completely different approach is the one used by Nguyen et al. in \cite{nguyen2020continuous}. Similarly to what we observed previously, they also noticed that "\textit{a swarm of multi-robot systems demands higher computational requirements as the swarm size increases}"(\cite{nguyen2020continuous}), therefore posing a scalability problem. To overcome such problem the authors propose a solution inspired from the concept of shepherding. As a matter of fact, taking inspiration from sheep-dogs guiding a flock, they use a system comprised of one controlling agent, namely an unmanned areal vehicle (UAV), acting as a sheepdog which controls three unmanned ground vehicles (UGVs). The UAV has a global perspective of the environment, hence is able to communicate with the other UGVs and those are within the field of view of its camera, and its job is to guide them towards a target. \\
 Differently from the solution proposed in \cite{guided}, which was a simulation in a controlled environment, Nguyen et al. could not model the behavior of the swarm using only a limited set of moves (backwards, forwards, left and right) since they are acting on a closer-to-real-world environment, where the action space of the robots is continuous.
 To overcome this problem,  Nguyen et al. applied an Hierarchical Deep Deterministic Policy Gradient (H-DDPG) algorithm to the UGVs and a DDPG to the UAV.
 The DDPG algorithm employs an architecture that comprises two networks, rather than only one, namely the agent and the critic. The first one, the agent network, estimates the policy as a continuous value, while the critic network simply approximates the Q-value corresponding to said policy. \\
@@ -287,7 +286,8 @@ Although these solutions are still on a primitive stage and there are still many
 
 \bibliographystyle{ieeetr}
 \bibliography{mybibfile}
-
+\section{Declaration of Originality}
+I,Luca Brodo, herewith declare that I have composed the present paper and work by myself and without use of any other than the cited sources and aids. Sentences or parts of sentences quoted literally are marked as such; other references with regard to the statement and scope are indicated by full details of the publications concerned. The paper and work in the same or similar form has not been submitted to any examination body and has not been published. This paper was not yet, even in part, used in another examination or as a course performance.
 
 
 \end{document}
